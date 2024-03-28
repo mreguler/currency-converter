@@ -1,3 +1,3 @@
-CIS 350 Team 11
+CIS 3500 Team 11 Final Project
 ----
-Idea TBD
+Idea: Currency Converter
