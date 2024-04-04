@@ -84,12 +84,15 @@ API: We will use this to provide real-time exchange rates for conversions.
 - **Manager:** Kim Fung
 - **Remaining Team Members:** Sam May, Emre Guler
 
-Cherilynn Chow: UI/UX design, HTML/CSS, testing
-Kim Fung: UI/UX design, HTML/CSS, testing
-Sam May: JavaScript logic, API storage, testing
-Emre Guler: UI/UX design, API storage, testing
+**Cherilynn Chow:** UI/UX design, HTML/CSS, testing
 
-We will have weekly meetings. We'll use Zoom, Slack, and GitHub.
+**Kim Fung:** UI/UX design, HTML/CSS, testing
+
+**Sam May:** JavaScript logic, API storage, testing
+
+**Emre Guler:** UI/UX design, JavaScript logic, API storage, testing
+
+We will have weekly meetings. We'll use Zoom, Slack, GitHub, and Figma.
 
 ### Risks and Mitigation
 - Some prices won't convert. So, we may implement something to manually convert prices.
@@ -97,7 +100,7 @@ We will have weekly meetings. We'll use Zoom, Slack, and GitHub.
 
 ### Milestones and Timeline
 
-_[- Week 1: Design and finalize wireframing
+- Week 1: Design and finalize wireframing
 - Week 2: Work on the HTML/CSS (Cherilynn and Kim) and JavaScript (Sam and Emre)
 - Week 3: Finish up the HTML/CSS (Cherilynn and Kim) and JavaScript (Sam and Emre)
 - Week 4: Testing and create demo / prepare presentation
