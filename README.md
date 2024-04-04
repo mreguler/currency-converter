@@ -57,41 +57,47 @@ From round3 of the ideation GitHub done in class
 
 ### User Interface
 
-_[Describe the user interface of your Chrome Extension: What will users see when they interact with your extension? How will they interact with the extension? You can include rough sketches or wireframes to illustrate your design, but name your files `<project id>-ui-1.png`, `<project id>-ui-2.png`, etc.]_
+- Users will click on the badge and a pop-up will appear. The pop-up will contain an option for users to choose which currency they want to convert the prices on the page into. Under the currency option, there will be a button to click to convert the currencies of the page. We may also try to implement a
+context menu to allow users to manually change the prices that they highlight if, for some reason, the extension does not change that specific price.
 
-_[Describe which Chrome UI/UX elements you will use in your extension, such as pop-ups, context menus, browser actions, omnibox, sidebar, etc.]_
+- Badge, pop-up, (and possibly context menu for manual replacement if this is implementable)
 
 ### API, Libraries, and Frameworks
 
 _[- List any APIs, libraries, or frameworks that you plan to use in your Chrome Extension.]_
+API: exchangerates API
+
 _[- Include links to the documentation or other relevant resources.]_
+API: https://exchangeratesapi.io/
+
 _[- Explain very briefly how you will use these tools in your project, one sentence per item.]_
+API: We will use this to provide real-time exchange rates for conversions.
 
 ### Data Storage
 
-_[Explain what data you might need to store, and provide some overview of the models—that is, the structure of the data.]_
-
-## Project Management
+- Settings (user preferences): This will be local. This will be stored in a JSON with key-value pairs.
+- Home currency and converting currency
 
 ### Collaboration and Task Allocation
 
-_[Select a Leader, who will make final decisions on the vision of the project; and a Manager, who will oversee the project management and ensure all team members have everything they need to contribute effectively. List the remaining team members and their roles.]_
+- **Leader:** Cherilynn Chow
+- **Manager:** Kim Fung
+- **Remaining Team Members:** Sam May, Emre Guler
 
-- **Leader:** [Name]
-- **Manager:** [Name]
-- **Remaining Team Members:** [Name 1, Name 2, [Name 3]]
+Cherilynn Chow: UI/UX design, HTML/CSS, testing
+Kim Fung: UI/UX design, HTML/CSS, testing
+Sam May: JavaScript logic, API storage, testing
+Emre Guler: JavaScript logic, API storage, testing
 
-_[Provide a brief overview of what each team member will work on. How will you collaborate on this project? What tools or platforms will you use to communicate and share code?]_
+We will have weekly meetings. We'll use Zoom, Slack, and GitHub.
 
 ### Risks and Mitigation
-
-_[Identify potential risks that could affect the development of your Chrome Extension. How will you mitigate these risks? What is your contingency plan if things don't go as expected?]_
+- Some prices won't convert. So, we may implement something to manually convert prices.
+- We might run out of API calls so, as a solution, we can switch between each of us to use each other's API keys.
 
 ### Milestones and Timeline
 
-_[You have about four weeks to work on this project. During the project management, you will use an Agile methodology to manage your tasks. For now, provide your best estimate of the work done each week, from Week 1 to Week 4.]_
-
-_[- Week 1: Task 1, Task 2, Task 3
-- Week 2: Task 4, Task 5, Task 6
-- Week 3: Task 7, Task 8, Task 9
-- Week 4: Task 10, Task 11, Task 12]_
+_[- Week 1: Design and finalize wireframing
+- Week 2: Work on the HTML/CSS (Cherilynn and Kim) and JavaScript (Sam and Emre)
+- Week 3: Finish up the HTML/CSS (Cherilynn and Kim) and JavaScript (Sam and Emre)
+- Week 4: Testing and create demo / prepare presentation
