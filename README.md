@@ -87,7 +87,7 @@ API: We will use this to provide real-time exchange rates for conversions.
 Cherilynn Chow: UI/UX design, HTML/CSS, testing
 Kim Fung: UI/UX design, HTML/CSS, testing
 Sam May: JavaScript logic, API storage, testing
-Emre Guler: JavaScript logic, API storage, testing
+Emre Guler: UI/UX design, API storage, testing
 
 We will have weekly meetings. We'll use Zoom, Slack, and GitHub.
 
