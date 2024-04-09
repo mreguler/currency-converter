@@ -9,12 +9,19 @@
     },
     "content_scripts": [
       {
-        "js": ["scripts/page-manip.js"],
+        "js": ["scripts/page-manip.js", "scripts/local-storage.js", "scripts/api.js"],
         "matches": [
           "https://developer.chrome.com/docs/extensions/*",
           "https://developer.chrome.com/docs/webstore/*"
         ]
       }
+    ],
+    "web_accessible_resources": [{
+      "matches": ["<all_urls>"],
+      "resources": ["scripts/*"]
+    }],
+    "permissions": [
+      "storage"
     ]
   }
   
