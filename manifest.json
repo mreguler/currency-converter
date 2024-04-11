@@ -9,11 +9,11 @@
     },
     "content_scripts": [
       {
-        "js": ["main-bundle.js"],
+        "js": ["build/main-bundle.js"],
         "matches": [
           "https://developer.chrome.com/docs/extensions/*",
           "https://developer.chrome.com/docs/webstore/*",
-          "http://127.0.0.1:8080/"
+          "http://127.0.0.1:8080/*"
         ]
       }
     ],
