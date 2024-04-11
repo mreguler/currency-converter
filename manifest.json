@@ -1,27 +1,17 @@
 {
     "manifest_version": 3,
-    "name": "Hello Extensions",
-    "description": "Base Level Extension",
+    "name": "Currency Converter",
     "version": "1.0",
+    "description": "Convert between currencies easily",
+    "permissions": ["activeTab", "storage"],
     "action": {
-      "default_popup": "popup/popup.html",
-      "default_icon": "images/test_icon.png"
-    },
-    "content_scripts": [
-      {
-        "js": ["scripts/page-manip.js", "scripts/local-storage.js", "scripts/api.js"],
-        "matches": [
-          "https://developer.chrome.com/docs/extensions/*",
-          "https://developer.chrome.com/docs/webstore/*"
-        ]
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/icon.png"
       }
-    ],
-    "web_accessible_resources": [{
-      "matches": ["<all_urls>"],
-      "resources": ["scripts/*"]
-    }],
-    "permissions": [
-      "storage"
-    ]
+    },
+    "icons": {
+      "16": "images/icon.png"
+    }
   }
-  
+
