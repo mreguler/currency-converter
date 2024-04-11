@@ -65,10 +65,10 @@ context menu to allow users to manually change the prices that they highlight if
 ### API, Libraries, and Frameworks
 
 _[- List any APIs, libraries, or frameworks that you plan to use in your Chrome Extension.]_
-API: exchangerates API
+API: exchangerates API, https://openexchangerates.org/api/
 
 _[- Include links to the documentation or other relevant resources.]_
-API: https://exchangeratesapi.io/
+API: https://exchangeratesapi.io/, https://openexchangerates.org/api/
 
 _[- Explain very briefly how you will use these tools in your project, one sentence per item.]_
 API: We will use this to provide real-time exchange rates for conversions.

@@ -4,8 +4,21 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <h1>Hello Extensions</h1>
-    <p class="text">hiii</p>
+    <div class="currency-converter">
+      <div class="input-group">
+        <label for="from-currency">From</label>
+        <select id="from-currency">
+        </select>
+        <input type="number" id="from-amount" value="1">
+      </div>
+      <div class="input-group">
+        <label for="to-currency">To</label>
+        <select id="to-currency">
+        </select>
+        <input type="number" id="to-amount" readonly>
+      </div>
+    </div>
     <script src="popup.js"></script>
+    <script src="../scripts/api.js"></script>
   </body>
 </html>
