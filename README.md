@@ -1,5 +1,7 @@
 # Chrome Extension Idea: Currency Converter
 
+<img src="images/mockup.png" width="800"/>
+
 ## Authors
 
 Kim Fung, Cherilynn Chow, Sam May, Emre Guler
