@@ -2,7 +2,7 @@
 const API_URL = "https://openexchangerates.org/api/"
 const APP_ID = "19b25b2d511245769592c95daba1ecf4"
 
-async function getRate(base) {
+async function getRateFromApi(base) {
     if (base == null || typeof base != "string" || base.length == 0) {
         base = "USD";
     }
@@ -129,4 +129,4 @@ const CODE_TO_UNICODE = {
 	"ZWD": "Z$",
 }
 
-export {getRate, CODE_TO_UNICODE}
+export {getRateFromApi, CODE_TO_UNICODE}
