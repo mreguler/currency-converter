@@ -12,12 +12,13 @@
 async function storeRates(rates, base) {
     rates["base"] = base;
     const d = new Date();
-    rates["timeCached"] = d.getTime();
+    rates["timestamp"] = d.getTime();
     await chrome.storage.local.set(rates);
+    return true;
 }
 
 async function getRates() {
-    // TODO: implement
+    return await chrome.storage.local.get(["base", "timestamp", "rates"]);
 }
 
 async function getPreferences() {
@@ -28,4 +29,4 @@ async function setPreferences() {
     // TODO: implement
 }
 
-storeRates({"test": "test2"}, "USD");
+export {storeRates, getRates, getPreferences, setPreferences}
