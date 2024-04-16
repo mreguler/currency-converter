@@ -16,4 +16,13 @@ async function getRate(base) {
     }
 }
 
+async function get_currencies() {
+    let res = await fetch(API_URL + `currencies.json?app_id=${APP_ID}`);
+    if (res.ok) {
+        return await res.json();
+    } else {
+        console.error(`Could not request currencies from API: ${await res.text()}`);
+    }
+}
+
 export default getRate
