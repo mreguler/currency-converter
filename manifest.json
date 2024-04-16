@@ -1,11 +1,11 @@
 {
     "manifest_version": 3,
-    "name": "Hello Extensions",
-    "description": "Base Level Extension",
+    "name": "Currency Converter",
     "version": "1.0",
+    "description": "Convert between currencies easily",
     "action": {
       "default_popup": "popup/popup.html",
-      "default_icon": "images/test_icon.png"
+      "default_icon": "images/icon.png"
     },
     "content_scripts": [
       {
@@ -21,6 +21,7 @@
       "resources": ["scripts/*"]
     }],
     "permissions": [
+      "activeTab",
       "storage"
     ]
   }

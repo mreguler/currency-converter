@@ -1,24 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  </head>
-    <link rel="stylesheet" href="popup.css" />
+  <head>
+    <title>Currency Converter</title>
+    <link rel="stylesheet" type="text/css" href="popup.css">
   </head>
   <body>
-    <div class="currency-converter">
-      <div class="input-group">
-        <label for="from-currency">From</label>
-        <select id="from-currency">
-        </select>
-        <input type="number" id="from-amount" value="1">
-      </div>
-      <div class="input-group">
-        <label for="to-currency">To</label>
-        <select id="to-currency">
-        </select>
-        <input type="number" id="to-amount" readonly>
-      </div>
+    <div id="currency-converter">
+      <input type="number" id="amount" placeholder="Enter amount">
+      <select id="from-currency"></select>
+      <select id="to-currency"></select>
+      <button id="convert">Convert</button>
+      <div id="result"></div>
     </div>
-    <script src="popup.js"></script>
-    <script src="../scripts/api.js"></script>
+    <script type="module" src="currencies.js"></script>
+    <script type="module" src="popup.js"></script>
   </body>
 </html>
