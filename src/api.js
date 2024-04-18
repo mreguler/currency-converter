@@ -24,15 +24,6 @@ async function getRateFromApi(base) {
     }
 }
 
-async function get_currencies() {
-    let res = await fetch(API_URL + `currencies.json?app_id=${APP_ID}`);
-    if (res.ok) {
-        return await res.json();
-    } else {
-        console.error(`Could not request currencies from API: ${await res.text()}`);
-    }
-}
-
 // Helper for handling edge cases, base conversions, etc. Excepts rates to eb stored in rates
 function convert(code1, code2) {
 	if (Object.keys(RATES).indexOf(code1) == -1) {
