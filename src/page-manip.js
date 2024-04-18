@@ -1,15 +1,21 @@
-import { CODE_TO_UNICODE } from "./api";
+import { UNICODE_TO_CODE, getConversion } from "./api";
 
 const CURRENCY_REGEX = /(\d+).*?(\p{Sc}).*?/u
 
 // Functions for manipulating text on page
-function pageManip() {
-    // TODO: Find all instances of currency amounts on page
-    const list = document.getElementsByTagName("li"); // FIXME:
+async function pageManip(base) {
+    // Check headers, paragraphs, lists, (FIXME: add others) for currencies
+    const list = document.querySelectorAll("li, p, h, div");
+    let m;
     for (let i=0; i<list.length; i++) {
-        if (list[i].innerHTML.search(CURRENCY_REGEX) >= 0) {
-            list[i].style.color = "red"
-            list[i].innerHTML += " (XXX) YYY"
+        m = list[i].innerHTML.match(CURRENCY_REGEX)
+        if (m != null) {
+            console.log(`${m[1]}, ${m[2]}, ${UNICODE_TO_CODE[m[2]]}, ${base}`)
+            getConversion(base, UNICODE_TO_CODE[m[2]]).then(newValue => {
+                list[i].style.color = "blue"
+                list[i].innerHTML = list[i].innerHTML.replace(m[1], newValue)
+                list[i].innerHTML = list[i].innerHTML.replace(m[2], base)
+            })
         }
     }
 

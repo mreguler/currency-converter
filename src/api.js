@@ -43,6 +43,7 @@ async function getConversion(code1, code2) {
 	const d = new Date();
 
 	// Check for rates in memory
+	console.log(`memory timestamp = ${timestamp}`)
 	if (timestamp > 0 && d.getTime() - timestamp < CACHE_TIMEOUT) {
 		console.log("rates gotten from memory")
 		return convert(code1, code2)
@@ -61,8 +62,9 @@ async function getConversion(code1, code2) {
 	// Update rates in memory and return conversion
 	RATES = disk_rates['rates']
 	BASE = disk_rates['base']
-	timestamp = disk_rates[timestamp]
+	timestamp = disk_rates['timestamp']
 	console.log("rates gotten from disk")
+	console.log(timestamp)
 	return convert(code1, code2)
 }
 
@@ -179,4 +181,9 @@ const CODE_TO_UNICODE = {
 	"ZWD": "Z$",
 }
 
-export {getRateFromApi, CODE_TO_UNICODE, getConversion}
+const UNICODE_TO_CODE = {}
+Object.keys(CODE_TO_UNICODE).forEach(key => {
+	UNICODE_TO_CODE[CODE_TO_UNICODE[key]] = key
+})
+
+export {getRateFromApi, CODE_TO_UNICODE, UNICODE_TO_CODE, getConversion}
