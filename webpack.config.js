@@ -5,6 +5,7 @@ module.exports = {
   devtool: "inline-source-map",
   entry: {
     main: "./src/main.js",
+    popup: "./popup/popup.js"
   },
   output: {
     path: path.resolve(__dirname, './build'),
