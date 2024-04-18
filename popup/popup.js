@@ -1,14 +1,33 @@
 import { getCurrencies, populateCurrencies } from './currencies.js';
+import { getPreferences, setPreferences } from './local-storage.js';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   const fromCurrencyDropdown = document.getElementById('from-currency');
   const toCurrencyDropdown = document.getElementById('to-currency');
 
-  getCurrencies().then(currencies => {
-    console.log(currencies);
-    populateCurrencies(fromCurrencyDropdown, currencies);
-    populateCurrencies(toCurrencyDropdown, currencies);
-  });
+  const currencies = await getCurrencies();
+  console.log(currencies);
+  populateCurrencies(fromCurrencyDropdown, currencies);
+  populateCurrencies(toCurrencyDropdown, currencies);
+
+  const defaultCurrency = await getPreferences();
+  if (defaultCurrency) {
+    toCurrencyDropdown.value = defaultCurrency;
+  }
+});
+
+toCurrencyDropdown.addEventListener('change', async function() {
+  const defaultCurrency = this.value;
+  try {
+    const success = await setPreferences(defaultCurrency);
+    if (success) {
+      console.log(`Default currency set to ${defaultCurrency}`);
+    } else {
+      console.log('Error setting default currency');
+    }
+  } catch (error) {
+    console.error('Error setting default currency:', error);
+  }
 });
 
 document.getElementById('convert').addEventListener('click', () => {
