@@ -3,6 +3,11 @@ const path = require('path');
 module.exports = {
   mode: "development",
   devtool: "inline-source-map",
+  watch: true,
+  watchOptions: {
+    aggregateTimeout: 200,
+    poll: 1000,
+  },
   entry: {
     main: "./src/main.js",
     popup: "./popup/popup.js"
