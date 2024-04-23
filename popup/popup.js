@@ -20,7 +20,12 @@ document.getElementById('convert').addEventListener('click', () => {
     }
     const fromCurrency = document.getElementById('from-currency').value;
     const toCurrency = document.getElementById('to-currency').value;
-
+    
+    if (fromCurrency === 'Choose original currency' || toCurrency === 'Choose target currency') {
+      alert('Please select valid currencies');
+      return;
+    }
+    
     getConversion(fromCurrency.substring(0, 3), toCurrency.substring(0, 3)).then(result => {
-      document.getElementById('result').textContent = `${toCurrency} ${(result * amount).toFixed(2)}`}); 
+      document.getElementById('result').textContent = `${fromCurrency} ${amount} = ${toCurrency} ${(result * amount).toFixed(2)}`}); 
 });
