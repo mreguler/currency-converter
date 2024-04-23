@@ -1,4 +1,5 @@
-import {getConversion} from "./api"
 import pageManip from "./page-manip"
 
-pageManip("USD");
+chrome.storage.local.get(["to"]).then(res => {
+    pageManip(res["to"]);
+})

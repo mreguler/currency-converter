@@ -7,23 +7,13 @@
       "default_popup": "popup/popup.html",
       "default_icon": "images/icon.png"
     },
-    "content_scripts": [
-      {
-        "js": ["build/main-bundle.js"],
-        "matches": [
-          "https://developer.chrome.com/docs/extensions/*",
-          "https://developer.chrome.com/docs/webstore/*",
-          "http://127.0.0.1:8080/*"
-        ]
-      }
-    ],
     "web_accessible_resources": [{
       "matches": ["<all_urls>"],
-      "resources": ["src/*"]
+      "resources": ["src/*", "build/*"]
     }],
     "permissions": [
       "activeTab",
-      "storage"
+      "storage",
+      "scripting"
     ]
   }
-  

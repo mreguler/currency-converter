@@ -29,3 +29,20 @@ document.getElementById('convert').addEventListener('click', () => {
     getConversion(fromCurrency.substring(0, 3), toCurrency.substring(0, 3)).then(result => {
       document.getElementById('result').textContent = `${fromCurrency} ${amount} = ${toCurrency} ${(result * amount).toFixed(2)}`}); 
 });
+
+document.getElementById('convert-page')?.addEventListener('click', () => {
+    const toCurrency = document.getElementById('to-currency').value;
+
+    if (toCurrency === 'Choose target currency') {
+      alert('Please select valid currencies');
+      return;
+    }
+
+    chrome.storage.local.set({"to": toCurrency}).then(async () => {
+      const [tab] = await chrome.tabs.query({active: true, lastFocusedWindow: true});
+      chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: ["build/main-bundle.js"]
+      });
+    });
+})
