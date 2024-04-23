@@ -9,24 +9,47 @@
  * 
  * @returns boolean true on success, false on failure
  */
+
 async function storeRates(rates, base) {
-    rates["base"] = base;
-    const d = new Date();
-    rates["timestamp"] = d.getTime();
-    await chrome.storage.local.set(rates);
-    return true;
+    try {
+        rates["base"] = base;
+        const d = new Date();
+        rates["timestamp"] = d.getTime();
+        await chrome.storage.local.set(rates);
+        return true;
+    } catch (error) {
+        console.error('Error storing rates:', error);
+        return false;
+    }
 }
 
 async function getRates() {
-    return await chrome.storage.local.get(["base", "timestamp", "rates"]);
+    try {
+        return await chrome.storage.local.get(["base", "timestamp", "rates"]);
+    } catch (error) {
+        console.error('Error getting rates:', error);
+        return null;
+    }
 }
 
 async function getPreferences() {
-    // TODO: implement
+    try {
+        const data = await chrome.storage.local.get("defaultCurrency");
+        return data.defaultCurrency;
+    } catch (error) {
+        console.error('Error getting preferences:', error);
+        return null;
+    }
 }
 
-async function setPreferences() {
-    // TODO: implement
+async function setPreferences(defaultCurrency) {
+    try {
+        await chrome.storage.local.set({defaultCurrency});
+        return true;
+    } catch (error) {
+        console.error('Error setting preferences:', error);
+        return false;
+    }
 }
 
 export {storeRates, getRates, getPreferences, setPreferences}
