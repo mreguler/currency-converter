@@ -4,11 +4,13 @@ import { getPreferences, setPreferences } from './local-storage.js';
 document.addEventListener('DOMContentLoaded', async function() {
   const fromCurrencyDropdown = document.getElementById('from-currency');
   const toCurrencyDropdown = document.getElementById('to-currency');
+  const defaultCurrencyDropdown = document.getElementById('default-currency');
 
   const currencies = await getCurrencies();
   console.log(currencies);
   populateCurrencies(fromCurrencyDropdown, currencies);
   populateCurrencies(toCurrencyDropdown, currencies);
+  populateCurrencies(defaultCurrencyDropdown, currencies);
 
   const defaultCurrency = await getPreferences();
   if (defaultCurrency) {
