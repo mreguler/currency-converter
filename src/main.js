@@ -1,4 +1,4 @@
-import {getRateFromApi} from "./api"
+import {getConversion} from "./api"
 import pageManip from "./page-manip"
 
-pageManip();
+pageManip("USD");

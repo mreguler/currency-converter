@@ -1,19 +1,22 @@
-import { CODE_TO_UNICODE } from "./api";
+import { CODE_TO_UNICODE, UNICODE_TO_CODE, getConversion } from "./api";
 
-const CURRENCY_REGEX = /(\d+).*?(\p{Sc}).*?/u
+const CURRENCY_REGEX = /(\d+\.?\d+).*?(\p{Sc}).*?/u
 
 // Functions for manipulating text on page
-function pageManip() {
-    // TODO: Find all instances of currency amounts on page
-    const list = document.getElementsByTagName("li"); // FIXME:
+async function pageManip(base) {
+    // GetConversion once to cache data into memory
+    await getConversion("USD", "USD");
+
+    // Check headers, paragraphs, lists, (FIXME: add others) for currencies
+    const list = document.querySelectorAll("li, p, h, div");
     for (let i=0; i<list.length; i++) {
-        if (list[i].innerHTML.search(CURRENCY_REGEX) >= 0) {
-            list[i].style.color = "red"
-            list[i].innerHTML += " (XXX) YYY"
+        let m = list[i].innerHTML.match(CURRENCY_REGEX)
+        if (m != null) {
+            getConversion(UNICODE_TO_CODE[m[2]], base).then(newValue => {
+                list[i].innerHTML += ` <mark>(${newValue*Number.parseFloat(m[1])} ${CODE_TO_UNICODE[base]})<mark>`
+            })
         }
     }
-
-    // TODO: Replace instances with appropriate CSS changes
 }
 
 export default pageManip

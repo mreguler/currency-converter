@@ -19,7 +19,7 @@
     ],
     "web_accessible_resources": [{
       "matches": ["<all_urls>"],
-      "resources": ["scripts/*"]
+      "resources": ["src/*"]
     }],
     "permissions": [
       "activeTab",
