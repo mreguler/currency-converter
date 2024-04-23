@@ -43,3 +43,7 @@ body {
     font-weight: bold;
     text-align: center;
   }
+
+  .padding-top {
+    padding-top: 20px;
+  }
