@@ -1,5 +1,6 @@
 import { getCurrencies, populateCurrencies } from './currencies.js';
 import { getPreferences, setPreferences } from '../src/local-storage.js';
+import { getConversion } from '../src/api.js';
 
 const fromCurrencyDropdown = document.getElementById('from-currency');
 const toCurrencyDropdown = document.getElementById('to-currency');
