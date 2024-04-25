@@ -7,16 +7,22 @@
   <body>
     <div id="currency-converter">
       <div>
-      <select id="from-currency"><option selected disabled>Choose original currency</option></select>
-      <select id="to-currency"><option selected disabled>Choose target currency</option></select>
+        <select id="from-currency"><option selected disabled>Choose original currency</option></select>
+        <select id="to-currency"><option selected disabled>Choose target currency</option></select>
       </div>
 
       <div class="padding-top">
-      <input type="number" id="amount" placeholder="Enter amount">
-      <button id="convert">Manually Convert Amount</button>
-      <div id="result"></div>
-      <hr>
-      <button id="convert-page">Convert This Page</button>
+        <input type="number" id="amount" placeholder="Enter amount">
+        <button id="convert">Manually Convert Amount</button>
+        <div id="result"></div>
+        <hr>
+        <button id="convert-page">Convert This Page</button>
+      </div>
+
+      <div class="padding-top">
+        <select id="default-currency">
+          <option selected disabled>Choose default currency</option>
+        </select>
       </div>
     </div>
     <script type="module" src="../build/popup-bundle.js"></script>
