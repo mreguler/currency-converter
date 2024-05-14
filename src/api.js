@@ -44,8 +44,8 @@ async function getConversion(code1, code2) {
 
 	// Check for rates in memory
 	if (timestamp > 0 && d.getTime() - timestamp < CACHE_TIMEOUT) {
-		console.log("rates gotten from memory")
-		return convert(code1, code2)
+		// console.log("rates gotten from memory")
+		return convert(code1, code2) || 0
 	}
 
 	// Check for rates in localstorage
@@ -55,16 +55,16 @@ async function getConversion(code1, code2) {
 		disk_rates = await getRateFromApi("USD")
 		storeRates(disk_rates, "USD")
 		disk_rates['timestamp'] = d.getTime()
-		console.log("rates gotten from api")
+		// console.log("rates gotten from api")
 	}
 
 	// Update rates in memory and return conversion
 	RATES = disk_rates['rates']
 	BASE = disk_rates['base']
 	timestamp = disk_rates['timestamp']
-	console.log("rates gotten from disk")
-	console.log(timestamp)
-	return convert(code1, code2)
+	// console.log("rates gotten from disk")
+	// console.log(timestamp)
+	return convert(code1, code2) || 0
 }
 
 // Currency utilities
@@ -81,7 +81,7 @@ const CODE_TO_UNICODE = {
 	"BZD": "BZ$",
 	"BMD": "$",
 	"BOB": "$b",
-	"BAM": "KM",
+	"BAM": "₻",
 	"BWP": "P",
 	"BGN": "лв",
 	"BRL": "R$",
@@ -104,7 +104,7 @@ const CODE_TO_UNICODE = {
 	"EUR": "€",
 	"FKP": "£",
 	"FJD": "$",
-	"GHS": "¢",
+	"GHS": "₵",
 	"GIP": "£",
 	"GTQ": "Q",
 	"GGP": "£",
@@ -121,7 +121,7 @@ const CODE_TO_UNICODE = {
 	"JMD": "J$",
 	"JPY": "¥",
 	"JEP": "£",
-	"KZT": "лв",
+	"KZT": "₸",
 	"KPW": "₩",
 	"KRW": "₩",
 	"KGS": "лв",
@@ -144,7 +144,7 @@ const CODE_TO_UNICODE = {
 	"OMR": "﷼",
 	"PKR": "₨",
 	"PAB": "B/.",
-	"PYG": "Gs",
+	"PYG": "₲",
 	"PEN": "S/.",
 	"PHP": "₱",
 	"PLN": "zł",
@@ -161,7 +161,7 @@ const CODE_TO_UNICODE = {
 	"ZAR": "R",
 	"LKR": "₨",
 	"SEK": "kr",
-	"CHF": "CHF",
+	"CHF": "₣",
 	"SRD": "$",
 	"SYP": "£",
 	"TWD": "NT$",
@@ -178,6 +178,7 @@ const CODE_TO_UNICODE = {
 	"VND": "₫",
 	"YER": "﷼",
 	"ZWD": "Z$",
+	"GEL": "₾"
 }
 
 const UNICODE_TO_CODE = {}

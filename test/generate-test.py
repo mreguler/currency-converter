@@ -3,7 +3,7 @@ import regex as re
 
 lines: list[str] = []
 MAX_AMOUNT = 10000
-CURRENCY_RE = re.compile(r".*?(\p{Sc}).*?")
+CURRENCY_RE = re.compile(r".*?li.*?(\p{Sc}).*?")
 with open("./symbols.html", "r") as infile:
     for line in infile.readlines():
         lines.append(line)
