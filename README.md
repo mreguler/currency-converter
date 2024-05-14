@@ -64,9 +64,9 @@ You also have the choice to automatically convert all prices on the current webp
 
 The Currency Converter Chrome Extension operates as follows:
 
-1. **Frontend UI.**: The extension popup contains a user-friendly interface for selecting currencies and entering the amount to be converted.
-2. **Exchange rate API.**: The extension fetches real-time exchange rates from a reliable API (that is, [ExchangeRate-API](https://www.exchangerate-api.com/)).
-3. **Conversion logic.**: The extension calculates the converted amount based on the fetched exchange rates and displays the result in the popup.
+1. **Frontend UI.** The extension popup contains a user-friendly interface for selecting currencies and entering the amount to be converted.
+2. **Exchange rate API.** The extension fetches real-time exchange rates from a reliable API (that is, [ExchangeRate-API](https://www.exchangerate-api.com/)).
+3. **Conversion logic.** The extension calculates the converted amount based on the fetched exchange rates and displays the result in the popup.
 
 ## Contributing
 
