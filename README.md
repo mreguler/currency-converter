@@ -1,108 +1,82 @@
-# Chrome Extension Idea: Currency Converter
+# Currency Converter Chrome Extension
 
-<img src="images/mockup.png" width="800"/>
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Our Problem Statement](#our-problem-statement)
+3. [Features](#features)
+4. [How To Install](#how-to-install)
+   - [Cloning the Repository](#cloning-the-repository)
+   - [Loading the Extension in Chrome](#loading-the-extension-in-chrome)
+5. [Usage](#usage)
+6. [How It Works](#how-it-works)
+7. [Contributing](#contributing)
+8. [License](#license)
 
-## Authors
+## Project Overview
 
-Kim Fung, Cherilynn Chow, Sam May, Emre Guler
+_Currency Converter_ is a Chrome extension that integrates real-time currency conversion directly into your browsing experience. You can instantly convert prices on any webpage to your home currency with a simple click. This seamless and streamlined in-page conversion tool eliminates the clutter of any extra tabs to manually convert and calculate.
 
-## Problem Statement
+## Our Problem Statement
 
-Online shoppers, travelers, and finance enthusiasts often encounter prices listed in foreign currencies when browsing the internet. This can make it challenging to quickly understand the true cost of products, services, or investments in their home currency. Currently, users must either manually convert these currencies using separate apps or websites, which interrupts their browsing experience, or rely on mental approximations, which can be inaccurate.
+Online shoppers, travelers, and finance enthusiasts frequently see prices listed in foreign currencies when browsing the internet. This creates a challenge in quickly understanding the true cost of products, services, or investments in their home currency. Users often resort to manual conversions using separate apps or websites, interrupting their browsing experience, or rely on mental approximations, which can be inaccurate.
 
-## Target Audience
+Our target audience for the Currency Converter extension project includes online shoppers buying from international websites, travelers planning trips or purchases in different countries, financial analysts and investors monitoring international markets, students and professionals engaging with international documents and reports, and anyone who might need quick and accurate currency conversions without interrupting their browsing flow.
 
-The target audience for Currency Converter includes:
+## Features
 
-- Online shoppers buying from international websites
-- Travelers planning trips or purchases in different countries
-- Financial analysts and investors monitoring international markets
-- Students and professionals who engage with international documents and reports
-- Users needing quick and accurate currency conversions while browsing
+- **Real-time price conversion.** Instantly convert prices directly on web pages without navigating away. Up-to-date exchange rates are fetched automatically in the background.
+- **All automatic..** Recognizes and highlights prices on web pages for seamless conversion.
+- **Manual mode.** You can use a pop-up on your browser to manually convert any prices without navigating away from the page you're on.
+- **Extensive currency support.** Provides conversion for a wide range of global currencies, all updated in real-time.
+- **Simplicity and fast usability.** The fast rendering simplifies shopping, travel planning, and financial analysis.
 
-## Description
+## How To Install
 
-Currency Converter is a Chrome Extension that seamlessly integrates real-time currency conversion into the user's browsing experience. With a hover or click, users can instantly convert prices on any webpage to their home currency or a preferred currency. It eliminates the need to disrupt the browsing experience with manual calculations or external websites, offering a streamlined, in-page conversion feature.
+### Cloning the Repository
 
-## Selling Points
+To get started, you'll need to clone the repository to your local machine. Open your terminal app of choice and run the command:
 
-1. Real-time currency conversion directly on web pages, without navigating away
-2. Customizable preferences for default home currency and frequently used currencies
-3. Automatically detects and highlights prices on web pages for conversion
-4. Supports conversion for a comprehensive list of global currencies, updated in real-time
-5. Simplifies shopping, travel planning, and financial analysis with instant, in-page currency insights
+```sh
+git clone https://github.com/mreguler/currency-converter.git
+```
 
-## User Stories
+### Loading the Extension in Chrome
 
-1. As an online shopper, I want to see the price of an item listed in a foreign currency converted to my home currency without leaving the webpage, so that I can quickly assess its cost.
-2. As a traveler, I want to convert prices of hotels, flights, and activities into my preferred currency with a simple hover or click, so I can plan my budget more efficiently.
-3. As a financial analyst, I want to easily convert stock prices into various currencies without interrupting my research flow.
-4. As an expat, I want to seamlessly convert prices on local websites to my home currency, so I can gauge how expenses align with my budgeting and financial planning.
-5. As a freelance professional working with international clients, I want to convert their payments from multiple currencies into my home currency instantly on my invoicing platform, so I can easily manage my finances and understand my earnings without constant manual calculations.
-6. As an online marketer analyzing ad spends across different countries, I want to convert advertising costs into a single currency directly on the ad platforms, so I can accurately assess and compare the ROI of global campaigns.
-7. As an enthusiast of international e-commerce, I want to convert auction prices on international bidding sites to my local currency in real-time, so I can make quick decisions on bids without being hindered by currency conversion delays or inaccuracies.
-8. As a content creator working with a global audience, I want an easy way to display my earnings and expenses in multiple currencies across different platforms in a consolidated dashboard, so I can manage my finances better and make informed decisions about where to focus my content creation efforts.
-9. As an international investor, I want a real-time currency conversion feature integrated into my investment tracking app, so I can see the current value of my overseas investments in my home currency without needing to use separate tools or manually calculate conversions.
-10. As a user of financial education platforms, I want interactive tools that automatically convert financial examples and exercises into my local currency, so I can better relate to the material and apply the concepts to my personal financial situation.
-11. As a global online retailer, I want to offer customers the option to view product prices in their preferred currency based on their location or selection, so they can shop more comfortably and make purchasing decisions with ease, enhancing their overall shopping experience on my platform.
-12. As a multi-national company employee managing projects across different countries, I want an integrated tool within our project management software that automatically converts and displays all project-related expenses into a single currency of my choice, so I can track and manage budgets more efficiently without manually converting currencies.
-    
-## Notes
+1. Open Google Chrome and navigate to `chrome://extensions/`.
+2. Enable "Developer mode" by toggling the switch in the top right corner.
+3. Click on the "Load unpacked" button.
+4. Select the cloned repository folder (`currency-converter`) to load the extension.
 
-Needs to be simple and seamless to work. Could also include a feature to adjust font size and type.
+The Currency Converter extension should now be installed and visible in your Chrome extensions list.
 
-## References & Inspiration
+## Usage
 
-From round3 of the ideation GitHub done in class
+1. Click on the Currency Converter icon in the Chrome toolbar to open the extension.
+2. Select the currencies you want to convert from and to.
+3. Enter the amount you wish to convert.
+4. The converted amount will be displayed instantly.
 
-## Technical Details
+You also have the choice to automatically convert all prices on the current webpage to your favorite currency.
 
-### User Interface
+## How It Works
 
-- Users will click on the badge and a pop-up will appear. The pop-up will contain an option for users to choose which currency they want to convert the prices on the page into. Under the currency option, there will be a button to click to convert the currencies of the page. We may also try to implement a
-context menu to allow users to manually change the prices that they highlight if, for some reason, the extension does not change that specific price.
+<img src="how-it-works.jpg" width="800"/>
 
-- Badge, pop-up, (and possibly context menu for manual replacement if this is implementable)
+The Currency Converter Chrome Extension operates as follows:
 
-### API, Libraries, and Frameworks
+1. **Frontend UI.**: The extension popup contains a user-friendly interface for selecting currencies and entering the amount to be converted.
+2. **Exchange rate API.**: The extension fetches real-time exchange rates from a reliable API (that is, [ExchangeRate-API](https://www.exchangerate-api.com/)).
+3. **Conversion logic.**: The extension calculates the converted amount based on the fetched exchange rates and displays the result in the popup.
 
-_[- List any APIs, libraries, or frameworks that you plan to use in your Chrome Extension.]_
-API: exchangerates API, https://openexchangerates.org/api/
+## Contributing
 
-_[- Include links to the documentation or other relevant resources.]_
-API: https://exchangeratesapi.io/, https://openexchangerates.org/api/
+We welcome contributions from the community. To contribute:
 
-_[- Explain very briefly how you will use these tools in your project, one sentence per item.]_
-API: We will use this to provide real-time exchange rates for conversions.
+1. Fork the repository.
+2. Create a new branch with a descriptive name.
+3. Make your changes and commit them with clear messages.
+4. Push your branch to your forked repository.
+5. Create a pull request to the `main` repository.
 
-### Data Storage
-
-- Settings (user preferences): This will be local. This will be stored in a JSON with key-value pairs.
-- Home currency and converting currency
-
-### Collaboration and Task Allocation
-
-- **Leader:** Cherilynn Chow
-- **Manager:** Kim Fung
-- **Remaining Team Members:** Sam May, Emre Guler
-
-**Cherilynn Chow:** UI/UX design, HTML/CSS, testing
-
-**Kim Fung:** UI/UX design, HTML/CSS, testing
-
-**Sam May:** JavaScript logic, API storage, testing
-
-**Emre Guler:** UI/UX design, JavaScript logic, API storage, testing
-
-We will have weekly meetings. We'll use Zoom, Slack, GitHub, and Figma.
-
-### Risks and Mitigation
-- Some prices won't convert. So, we may implement something to manually convert prices.
-- We might run out of API calls so, as a solution, we can switch between each of us to use each other's API keys.
-
-### Milestones and Timeline
-
-- Week 1: Design and finalize wireframing
-- Week 2: Work on the HTML/CSS (Cherilynn and Kim) and JavaScript (Sam and Emre)
-- Week 3: Finish up the HTML/CSS (Cherilynn and Kim) and JavaScript (Sam and Emre)
-- Week 4: Testing and create demo / prepare presentation
+## License
+This project is made by Cherilynn Chow, Kim Fung, Sam May, and Emre Guler. It's licensed under the MIT License.
