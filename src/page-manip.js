@@ -15,35 +15,40 @@ function formatMark(price, symbol) {
     return mark
 }
 
+function commaParse(str) {
+    return str?.replace(",","") || ""
+}
+
 // Functions for manipulating text on page
 async function pageManip(to) {
     // GetConversion once to cache data into memory
     await getConversion("USD", "USD");
 
     // Check headers, paragraphs, lists, (FIXME: add others) for currencies
-    const list = document.querySelectorAll("li, p, h, div, span, form, a, select, input");
+    const list = document.querySelectorAll("li, ul, p, h, div, span, form, a, select, input");
     // Traverse the list backwards and keep track of which elements we've modified to avoid duplicate mods
     // Not the most efficient method, but should be fast enough for reasonably sized web pages
     const modifiedElements = []
     for (let i=list.length-1; i>=0; i--) {
-        console.log(list[i])
-        let m = list[i].textContent?.match(CURRENCY_REGEX)
-        let mb = list[i].textContent?.match(CURRENCY_REGEXB)
-        let mc = list[i].textContent?.match(/\p{Sc}/u)
+        // FIXME: America-centric removal of commas (assumes comma is thousands delimiter instead of decimal delimiter)
+        let parsedTextContent = commaParse(list[i].textContent)
+        let m = parsedTextContent.match(CURRENCY_REGEX)
+        let mb = parsedTextContent.match(CURRENCY_REGEXB)
+        let mc = parsedTextContent.match(/\p{Sc}/u)
         // Skip if there's a risk we fuck up a script tag
         let scripts = list[i].querySelectorAll("script")
         let danger = false;
         if (scripts.length != 0) {
             for (let j=0; j<scripts.length; j++) {
-                if (m != null && scripts[j].textContent?.includes(m[0])) {
+                if (m != null && commaParse(scripts[j].textContent).includes(m[0])) {
                     danger = true;
                     break;
                 }
-                if (mb != null && scripts[j].textContent?.includes(mb[0])) {
+                if (mb != null && commaParse(scripts[j].textContent).includes(mb[0])) {
                     danger = true;
                     break;
                 }
-                if (m == null && mb == null && mc != null && scripts[j].textContent?.includes(mc[0])) {
+                if (m == null && mb == null && mc != null && commaParse(scripts[j].textContent).includes(mc[0])) {
                     danger = true;
                     break;
                 }
@@ -53,27 +58,25 @@ async function pageManip(to) {
         // Skip if the visibility of the element is false
         if (!list[i].checkVisibility() || list[i].offsetParent === null) {
             danger = true;
-            modifiedElements.push(list[i]) // If a parent sees this text, we don't actually want to count it
         }
 
         // Skip if we've modified a child element
         let children = list[i].children
         for (let j=0; j<children.length; j++) {
             if (modifiedElements.includes(children[j])) {
-                if (m != null && children[j].textContent?.includes(m[0])) {
+                if (m != null && commaParse(children[j].textContent).includes(m[0])) {
                     danger = true;
-                    modifiedElements.push(list[i])
                     break;
                 }
-                if (mb != null && children[j].textContent?.includes(mb[0])) {
+                if (mb != null && commaParse(children[j].textContent).includes(mb[0])) {
                     danger = true;
-                    modifiedElements.push(list[i])
                     break;
                 }
             }
         }
 
         if (danger) {
+            modifiedElements.push(list[i])
             continue;
         }
 
@@ -101,11 +104,11 @@ async function pageManip(to) {
 
             // Combine forwards and backwards to try and create a match
             let prevPrice = ""
-            prevPrice += prev2?.textContent || ""
-            prevPrice += prev?.textContent || ""
+            prevPrice += prev2?.textContent?.replace(",", "") || ""
+            prevPrice += prev?.textContent?.replace(",", "") || ""
             let nextPrice = ""
-            nextPrice += next?.textContent || ""
-            nextPrice += next2?.textContent || ""
+            nextPrice += next?.textContent?.replace(",", "") || ""
+            nextPrice += next2?.textContent?.replace(",", "") || ""
 
             let mprev = prevPrice.match(PRICE_REGEX)
             let mnext = nextPrice.match(PRICE_REGEX)
@@ -122,7 +125,7 @@ async function pageManip(to) {
                 if (newValue != 0) {
                     list[i].prepend(formatMark(CODE_TO_UNICODE[to], formatPrice(newValue, Number.parseFloat(mnext[1]))))
                     modifiedElements.push(list[i])
-                    modifiedElements.push(list[i].lastChild)
+                    modifiedElements.push(list[i].firstChild)
                 }
             }
         }
