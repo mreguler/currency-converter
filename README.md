@@ -25,7 +25,7 @@ Our target audience for the Currency Converter extension project includes online
 ## Features
 
 - **Real-time price conversion.** Instantly convert prices directly on web pages without navigating away. Up-to-date exchange rates are fetched automatically in the background.
-- **All automatic..** Recognizes and highlights prices on web pages for seamless conversion.
+- **All automatic.** Recognizes and highlights prices on web pages for seamless conversion.
 - **Manual mode.** You can use a pop-up on your browser to manually convert any prices without navigating away from the page you're on.
 - **Extensive currency support.** Provides conversion for a wide range of global currencies, all updated in real-time.
 - **Simplicity and fast usability.** The fast rendering simplifies shopping, travel planning, and financial analysis.
