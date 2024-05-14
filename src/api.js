@@ -44,8 +44,8 @@ async function getConversion(code1, code2) {
 
 	// Check for rates in memory
 	if (timestamp > 0 && d.getTime() - timestamp < CACHE_TIMEOUT) {
-		console.log("rates gotten from memory")
-		return convert(code1, code2)
+		// console.log("rates gotten from memory")
+		return convert(code1, code2) || 0
 	}
 
 	// Check for rates in localstorage
@@ -55,16 +55,16 @@ async function getConversion(code1, code2) {
 		disk_rates = await getRateFromApi("USD")
 		storeRates(disk_rates, "USD")
 		disk_rates['timestamp'] = d.getTime()
-		console.log("rates gotten from api")
+		// console.log("rates gotten from api")
 	}
 
 	// Update rates in memory and return conversion
 	RATES = disk_rates['rates']
 	BASE = disk_rates['base']
 	timestamp = disk_rates['timestamp']
-	console.log("rates gotten from disk")
-	console.log(timestamp)
-	return convert(code1, code2)
+	// console.log("rates gotten from disk")
+	// console.log(timestamp)
+	return convert(code1, code2) || 0
 }
 
 // Currency utilities
