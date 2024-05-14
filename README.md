@@ -60,13 +60,18 @@ You also have the choice to automatically convert all prices on the current webp
 
 ## How It Works
 
-<img src="how-it-works.jpg" width="800"/>
+<img src="assets/how-it-works.jpg" width="800"/>
 
 The Currency Converter Chrome Extension operates as follows:
 
 1. **Frontend UI.** The extension popup contains a user-friendly interface for selecting currencies and entering the amount to be converted.
 2. **Exchange rate API.** The extension fetches real-time exchange rates from a reliable API (that is, [ExchangeRate-API](https://www.exchangerate-api.com/)).
 3. **Conversion logic.** The extension calculates the converted amount based on the fetched exchange rates and displays the result in the popup.
+
+## Demo screenshots
+<img src="assets/amazon1.png" width="800"/>
+<img src="assets/amazon2.png" width="800"/>
+<img src="assets/ebay.png" width="800"/>
 
 ## Contributing
 
