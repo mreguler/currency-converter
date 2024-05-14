@@ -9,9 +9,14 @@ function formatPrice(conversion, oldVal) {
     return `${(Math.round(conversion*oldVal*100)/100).toFixed(2)}`
 }
 
-function formatMark(price, symbol) {
+function formatMark(price, code, backwards=false) {
     var mark = document.createElement("mark")
-    mark.innerText = ` ${price} ${symbol} `
+    var symbol = CODE_TO_UNICODE[code]
+    if (symbol === undefined) {
+        symbol = code
+    }
+    mark.innerText = backwards ? ` ${symbol} ${price} ` : ` ${price} ${symbol} `
+    mark.setAttribute("imacurrencyelementandthisisauniqueattributename", "")
     return mark
 }
 
@@ -25,11 +30,16 @@ async function pageManip(to) {
     await getConversion("USD", "USD");
 
     // Check headers, paragraphs, lists, (FIXME: add others) for currencies
-    const list = document.querySelectorAll("li, ul, p, h, div, span, form, a, select, input");
+    const list = document.querySelectorAll("li, ul, p, h, div, span, form, a, select, input, mark");
     // Traverse the list backwards and keep track of which elements we've modified to avoid duplicate mods
     // Not the most efficient method, but should be fast enough for reasonably sized web pages
     const modifiedElements = []
     for (let i=list.length-1; i>=0; i--) {
+        // Remove the element altogether if it is a previous currency conversion annotation
+        if (list[i].getAttribute("imacurrencyelementandthisisauniqueattributename") != null) {
+            list[i].parentElement?.removeChild(list[i])
+            continue;
+        }
         // FIXME: America-centric removal of commas (assumes comma is thousands delimiter instead of decimal delimiter)
         let parsedTextContent = commaParse(list[i].textContent)
         let m = parsedTextContent.match(CURRENCY_REGEX)
@@ -85,13 +95,13 @@ async function pageManip(to) {
         if (m != null) {
             newValue = await getConversion(UNICODE_TO_CODE[m[2]], to);
             if (newValue != 0) {
-                list[i].appendChild(formatMark(formatPrice(newValue, Number.parseFloat(m[1])), CODE_TO_UNICODE[to]))
+                list[i].appendChild(formatMark(formatPrice(newValue, Number.parseFloat(m[1])), to))
                 modifiedElements.push(list[i])
             }
         } else if (mb != null) {
             newValue = await getConversion(UNICODE_TO_CODE[mb[1]], to);
             if (newValue != 0) {
-                list[i].appendChild(formatMark(CODE_TO_UNICODE[to], formatPrice(newValue, Number.parseFloat(mb[2]))))
+                list[i].appendChild(formatMark(formatPrice(newValue, Number.parseFloat(mb[2])), to, true))
                 modifiedElements.push(list[i])
             }
         } else if (mc != null) {
@@ -116,14 +126,14 @@ async function pageManip(to) {
             if (mprev != null && prevPrice.length < 100) {
                 newValue = await getConversion(UNICODE_TO_CODE[mc[0]], to)
                 if (newValue != 0) {
-                    list[i].appendChild(formatMark(formatPrice(newValue, Number.parseFloat(mprev[1])), CODE_TO_UNICODE[to]))
+                    list[i].appendChild(formatMark(formatPrice(newValue, Number.parseFloat(mprev[1])), to))
                     modifiedElements.push(list[i])
                     modifiedElements.push(list[i].lastChild)
                 }
             } else if (mnext != null && nextPrice.length < 100) {
                 newValue = await getConversion(UNICODE_TO_CODE[mc[0]], to)
                 if (newValue != 0) {
-                    list[i].prepend(formatMark(CODE_TO_UNICODE[to], formatPrice(newValue, Number.parseFloat(mnext[1]))))
+                    list[i].prepend(formatMark(formatPrice(newValue, Number.parseFloat(mnext[1])), to, true))
                     modifiedElements.push(list[i])
                     modifiedElements.push(list[i].firstChild)
                 }

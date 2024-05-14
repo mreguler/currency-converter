@@ -81,7 +81,7 @@ const CODE_TO_UNICODE = {
 	"BZD": "BZ$",
 	"BMD": "$",
 	"BOB": "$b",
-	"BAM": "KM",
+	"BAM": "₻",
 	"BWP": "P",
 	"BGN": "лв",
 	"BRL": "R$",
@@ -104,7 +104,7 @@ const CODE_TO_UNICODE = {
 	"EUR": "€",
 	"FKP": "£",
 	"FJD": "$",
-	"GHS": "¢",
+	"GHS": "₵",
 	"GIP": "£",
 	"GTQ": "Q",
 	"GGP": "£",
@@ -121,7 +121,7 @@ const CODE_TO_UNICODE = {
 	"JMD": "J$",
 	"JPY": "¥",
 	"JEP": "£",
-	"KZT": "лв",
+	"KZT": "₸",
 	"KPW": "₩",
 	"KRW": "₩",
 	"KGS": "лв",
@@ -144,7 +144,7 @@ const CODE_TO_UNICODE = {
 	"OMR": "﷼",
 	"PKR": "₨",
 	"PAB": "B/.",
-	"PYG": "Gs",
+	"PYG": "₲",
 	"PEN": "S/.",
 	"PHP": "₱",
 	"PLN": "zł",
@@ -161,7 +161,7 @@ const CODE_TO_UNICODE = {
 	"ZAR": "R",
 	"LKR": "₨",
 	"SEK": "kr",
-	"CHF": "CHF",
+	"CHF": "₣",
 	"SRD": "$",
 	"SYP": "£",
 	"TWD": "NT$",
@@ -178,6 +178,7 @@ const CODE_TO_UNICODE = {
 	"VND": "₫",
 	"YER": "﷼",
 	"ZWD": "Z$",
+	"GEL": "₾"
 }
 
 const UNICODE_TO_CODE = {}
