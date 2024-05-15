@@ -72,7 +72,7 @@ You also have the choice to automatically convert all prices on the current webp
 
 ## How It Works
 
-<img src="assets/how-it-works.jpg" width="800"/>
+<img src="assets/how-it-works.png" width="800"/>
 
 The Currency Converter Chrome Extension operates as follows:
 
