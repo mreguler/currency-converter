@@ -32,13 +32,25 @@ Our target audience for the Currency Converter extension project includes online
 
 ## How To Install
 
-### Cloning the Repository
+### Cloning the Repository and Installing Dependencies
 
-To get started, you'll need to clone the repository to your local machine. Open your terminal app of choice and run the command:
+1. To get started, you'll need to clone the repository to your local machine. Open your terminal app of choice and run the command:
 
-```sh
-git clone https://github.com/mreguler/currency-converter.git
-```
+   ```sh
+   git clone https://github.com/mreguler/currency-converter.git
+   ```
+2. Then, cd into the extension folder:
+   ```bash
+   cd currency-converter
+   ```
+5. Install dependencies in the terminal:
+   ```bash
+   npm install
+   ```
+6. Run the build:
+   ```bash
+   npm run build
+   ```
 
 ### Loading the Extension in Chrome
 
