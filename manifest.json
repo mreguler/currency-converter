@@ -5,7 +5,7 @@
     "description": "Convert between currencies easily",
     "action": {
       "default_popup": "popup/popup.html",
-      "default_icon": "images/icon.png"
+      "default_icon": "assets/icon.png"
     },
     "web_accessible_resources": [{
       "matches": ["<all_urls>"],
