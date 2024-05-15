@@ -85,6 +85,10 @@ The Currency Converter Chrome Extension operates as follows:
 <img src="assets/amazon2.png" width="800"/>
 <img src="assets/ebay.png" width="800"/>
 
+## Blog Post
+
+Access our blog post [here](https://cherilynnchow.github.io/currency-converter-landing-page/post/hugo-v0-119/).
+
 ## Contributing
 
 We welcome contributions from the community. To contribute:
@@ -94,6 +98,10 @@ We welcome contributions from the community. To contribute:
 3. Make your changes and commit them with clear messages.
 4. Push your branch to your forked repository.
 5. Create a pull request to the `main` repository.
+
+## Issues
+
+File comments, concerns, or issues by [opening an issue](https://github.com/mreguler/currency-converter/issues/new) on Github.
 
 ## License
 This project is made by Cherilynn Chow, Kim Fung, Sam May, and Emre Guler. It's licensed under the MIT License.
