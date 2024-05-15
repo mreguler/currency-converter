@@ -14,7 +14,7 @@
 
 ## Project Overview
 
-_Currency Converter_ is a Chrome extension that integrates real-time currency conversion directly into your browsing experience. You can instantly convert prices on any webpage to your home currency with a simple click. This seamless and streamlined in-page conversion tool eliminates the clutter of any extra tabs to manually convert and calculate.
+_Currency Converter_ is a Chrome extension that integrates real-time currency conversion directly into your browsing experience. You can instantly convert prices on any webpage to your home currency with a simple click. This seamless and streamlined in-page conversion tool eliminates the clutter of any extra tabs to manually convert and calculate. You can access the landing page for this extension by going to https://cherilynnchow.github.io/currency-converter-landing-page/
 
 ## Our Problem Statement
 
