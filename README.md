@@ -87,7 +87,7 @@ The Currency Converter Chrome Extension operates as follows:
 
 ## Blog Post
 
-Access our blog post [here](https://cherilynnchow.github.io/currency-converter-landing-page/post/hugo-v0-119/).
+Access our blog post [here](https://cherilynnchow.github.io/currency-converter-landing-page/post/blog-post-1/).
 
 ## Contributing
 
